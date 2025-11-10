@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "297955126873",
+    "project_id": "campus-buddy-70a9d",
+    "storage_bucket": "campus-buddy-70a9d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297955126873:android:7bcc35d8849414b2dd0b48",
+        "android_client_info": {
+          "package_name": "com.savebytes.campusbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297955126873-gnmt2ujerrqm78tr0pb3lnu03h3q70r9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.savebytes.campusbuddy",
+            "certificate_hash": "310d476a14e2027738fb18cfa0e4d7bde4ff7824"
+          }
+        },
+        {
+          "client_id": "297955126873-n80rs5l7v9mimodcoj2829qgodmob69s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz1PwPB5FXXUzrIYxxW6U80dVKpEiwxm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297955126873-n80rs5l7v9mimodcoj2829qgodmob69s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
