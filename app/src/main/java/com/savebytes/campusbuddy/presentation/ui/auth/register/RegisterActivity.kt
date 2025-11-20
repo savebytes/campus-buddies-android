@@ -4,18 +4,17 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.credentials.CredentialManager
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
-import com.google.android.gms.auth.api.identity.BeginSignInRequest.GoogleIdTokenRequestOptions
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.common.api.ApiException
+import androidx.lifecycle.Observer
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.savebytes.campusbuddy.BuildConfig
 import com.savebytes.campusbuddy.databinding.ActivityRegisterBinding
+import com.savebytes.campusbuddy.domain.model.UserData
+import com.savebytes.campusbuddy.presentation.ui.auth.AuthState
 import com.savebytes.campusbuddy.presentation.ui.auth.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,26 +26,44 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var credentialManager: CredentialManager
     private lateinit var getCredentialLauncher: ActivityResultLauncher<GetCredentialRequest>
 
+    private var mUserData : UserData? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         credentialManager = CredentialManager.create(this)
 
-        getCredentialLauncher = this.registerForActivityResult(
-            CredentialManager.getGetCredentialContract()
-        ) { response ->
-            handleCredentialResponse(response)
-        }
 
         initView()
         getExtrasData()
+        observer()
 
     }
 
-    private fun getExtrasData() {
+    private fun observer() {
+        viewModel.authState.observe(this, Observer { state ->
+            when(state){
+                is AuthState.Error ->{
+                    mUserData = null
+                }
+                is AuthState.Idle -> {
+                    mUserData = null
+                }
+                is AuthState.Loading -> {
+                    mUserData = null
+                }
+                is AuthState.Success -> {
+                    mUserData = state.user
 
+                }
+            }
+        })
+    }
+
+    private fun getExtrasData() {
 
 
     }
@@ -72,12 +89,12 @@ class RegisterActivity : AppCompatActivity() {
             val confirmPassword = binding.etConfirmPassword.text.toString().trim()
 
             if (validateInput(email, password, confirmPassword)) {
-                viewModel.signUpWithEmail(email, password)
+                // viewModel.signUpWithEmail(email, password)
             }
         }
 
         binding.btnGoogleSignIn.setOnClickListener {
-            viewModel.signInWithGoogle()
+            // viewModel.signInWithGoogle()
         }
 
         binding.tvLogin.setOnClickListener {
@@ -127,7 +144,7 @@ class RegisterActivity : AppCompatActivity() {
             if (credential is com.google.android.libraries.identity.googleid.GoogleIdTokenCredential) {
                 val idToken = credential.idToken
                 if (idToken != null) {
-                    viewModel.signInWithGoogle()
+                    // viewModel.signInWithGoogle()
                 } else {
                     Toast.makeText(this, "No ID token received", Toast.LENGTH_SHORT).show()
                 }

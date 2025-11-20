@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
+import com.savebytes.campusbuddy.domain.model.UserData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -34,6 +35,12 @@ class DataPrefManager @Inject constructor(
         key = AppPrefKeys.appPreference,
         defaultValue = ""
     )
+
+
+
+
+
+
 
     suspend fun clearUserData() {
         Log.i(

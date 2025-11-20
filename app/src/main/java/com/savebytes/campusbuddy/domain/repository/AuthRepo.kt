@@ -1,8 +1,8 @@
 package com.savebytes.campusbuddy.domain.repository
 
-import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseUser
 import com.savebytes.campusbuddy.data.remote.dto.response.AuthResponse
+import com.savebytes.campusbuddy.data.remote.dto.response.HomeResponse
 import com.savebytes.campusbuddy.presentation.util.Resource
 
 interface AuthRepo {
@@ -26,6 +26,8 @@ interface AuthRepo {
     fun getCurrentUser(): FirebaseUser?
 
     suspend fun logout()
+
+    suspend fun getMoviesData() : Resource<HomeResponse>
 
 }
 

@@ -2,17 +2,24 @@ package com.savebytes.campusbuddy.presentation.ui.auth.login
 
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.savebytes.campusbuddy.BuildConfig
+import com.savebytes.campusbuddy.data.repository.CredentialManagerHelper
 import com.savebytes.campusbuddy.databinding.ActivityLoginBinding
 import com.savebytes.campusbuddy.presentation.ui.auth.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: AuthViewModel by viewModels()
+    private lateinit var credentialManagerHelper: CredentialManagerHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +42,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.getMovie()
+        viewModel.getAllMovies()
+
 
         binding.btnGoogleSignIn.setOnClickListener {
-            signInWithGoogle()
+
         }
 
     }
@@ -74,9 +82,22 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
-    private fun signInWithGoogle() {
-        viewModel.signInWithGoogle()
-    }
+//    private fun handleGoogleSignIn() {
+//        CoroutineScope(Dispatchers.Main).launch {
+//            try {
+//
+//                val webClientId = BuildConfig.GOOGLE_WEB_CLIENT_ID // From strings.xml
+//                val idToken = credentialManagerHelper.getGoogleCredential(webClientId)
+//
+//                viewModel.googleSignIn(idToken)
+//            } catch (e: Exception) {
+//                progressBar.visibility = android.view.View.GONE
+//                enableButtons()
+//                Toast.makeText(this@AuthActivity, e.message, Toast.LENGTH_LONG).show()
+//            }
+//        }
+//    }
+
 }
 
 

@@ -5,13 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseUser
-import com.savebytes.campusbuddy.data.repository.AuthRepositoryImpl
+import com.savebytes.campusbuddy.data.remote.dto.response.HomeResponse
+import com.savebytes.campusbuddy.data.repository.AuthRepository
 import com.savebytes.campusbuddy.domain.model.UserData
+import com.savebytes.campusbuddy.presentation.util.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.onFailure
-import kotlin.onSuccess
 
 sealed class AuthState {
     object Idle : AuthState()
@@ -22,14 +22,19 @@ sealed class AuthState {
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    private val authRepository: AuthRepositoryImpl
+    private val authRepository: AuthRepository
 ) : ViewModel() {
+
+    private val TAG = "AuthViewModel"
 
     private val _authState = MutableLiveData<AuthState>(AuthState.Idle)
     val authState: LiveData<AuthState> = _authState
 
     private val _currentUser = MutableLiveData<FirebaseUser?>()
     val currentUser: LiveData<FirebaseUser?> = _currentUser
+
+    private val _movieResponse = MutableLiveData<HomeResponse>()
+    val movieResponse : LiveData<HomeResponse> = _movieResponse
 
     init {
         _currentUser.value = authRepository.getCurrentUser()
@@ -38,18 +43,18 @@ class AuthViewModel @Inject constructor(
     fun emailSignUp(email: String, password: String, name: String) {
         viewModelScope.launch {
             _authState.value = AuthState.Loading
-            val result = authRepository.emailSignUp(email, password, name)
-            result.isSuccess
-            result.onSuccess { response ->
-                if (response) {
-                    _authState.value = AuthState.Success(response.user!!)
+            val response = authRepository.emailSignUp(email, password, name)
+            when(response.status){
+                Status.SUCCESS -> {
+                    _authState.value = AuthState.Success(response.data?.user!!)
                     _currentUser.value = authRepository.getCurrentUser()
-                } else {
-                    _authState.value = AuthState.Error(response.message)
                 }
-            }
-            result.onFailure { exception ->
-                _authState.value = AuthState.Error(exception.message ?: "Unknown error")
+                Status.ERROR -> {
+                    _authState.value = AuthState.Error(response.message ?: "Unknown error")
+                }
+                Status.LOADING -> {
+                    _authState.value = AuthState.Loading
+                }
             }
         }
     }
@@ -57,17 +62,18 @@ class AuthViewModel @Inject constructor(
     fun emailSignIn(email: String, password: String) {
         viewModelScope.launch {
             _authState.value = AuthState.Loading
-            val result = authRepository.emailSignIn(email, password)
-            result.onSuccess { response ->
-                if (response.success) {
-                    _authState.value = AuthState.Success(response.user!!)
+            val response = authRepository.emailSignIn(email, password)
+            when(response.status){
+                Status.SUCCESS -> {
+                    _authState.value = AuthState.Success(response.data?.user!!)
                     _currentUser.value = authRepository.getCurrentUser()
-                } else {
-                    _authState.value = AuthState.Error(response.message)
                 }
-            }
-            result.onFailure { exception ->
-                _authState.value = AuthState.Error(exception.message ?: "Unknown error")
+                Status.ERROR -> {
+                    _authState.value = AuthState.Error(response.message ?: "Unknown error")
+                }
+                Status.LOADING -> {
+                    _authState.value = AuthState.Loading
+                }
             }
         }
     }
@@ -75,17 +81,36 @@ class AuthViewModel @Inject constructor(
     fun googleSignIn(idToken: String, email: String? = null) {
         viewModelScope.launch {
             _authState.value = AuthState.Loading
-            val result = authRepository.googleSignIn(idToken, email)
-            result.onSuccess { response ->
-                if (response.success) {
-                    _authState.value = AuthState.Success(response.user!!)
+            val response = authRepository.googleSignIn(idToken, email)
+            when(response.status){
+                Status.SUCCESS -> {
+                    _authState.value = AuthState.Success(response.data?.user!!)
                     _currentUser.value = authRepository.getCurrentUser()
-                } else {
-                    _authState.value = AuthState.Error(response.message)
+                }
+                Status.ERROR -> {
+                    _authState.value = AuthState.Error(response.message ?: "Unknown error")
+                }
+                Status.LOADING -> {
+                    _authState.value = AuthState.Loading
                 }
             }
-            result.onFailure { exception ->
-                _authState.value = AuthState.Error(exception.message ?: "Unknown error")
+        }
+    }
+
+    fun getAllMovies() {
+        viewModelScope.launch {
+            _authState.value = AuthState.Loading
+            val response = authRepository.getMoviesData()
+            when(response.status){
+                Status.SUCCESS -> {
+                    _movieResponse.value = response.data!!
+                }
+                Status.ERROR -> {
+                    _authState.value = AuthState.Error(response.message ?: "Unknown error")
+                }
+                Status.LOADING -> {
+                    _authState.value = AuthState.Loading
+                }
             }
         }
     }
