@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryTextColor">#101828</color>
+    <color name="secondaryTextColor">#4a5565</color>
+
+    <color name="primaryAccentColor">#009689</color>
+
+    <color name="primaryActiveColor">#009689</color>
+    <color name="primaryInactiveColor">#d1d5dc</color>
+
+    <color name="onb_indicator_active">#5B4FE9</color>
+
+    <color name="text_input_stroke_focused">#A2A2A2</color>
+    <color name="text_input_stroke_unfocused">#E0E0E0</color>
+
+
 </resources>

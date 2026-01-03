@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="false"
+    android:background="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacingXxl"
+        android:paddingBottom="@dimen/spacing4xl">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/complete_your_profile"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text3xl"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"
+            android:layout_marginTop="@dimen/spacingLg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_others_know_you_better"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/textLg"
+            android:layout_marginTop="@dimen/spacingSm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <FrameLayout
+            android:id="@+id/profilePictureContainer"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="@dimen/spacing3xl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+
+            <!-- Avatar Placeholder Image -->
+            <ImageView
+                android:id="@+id/avatarImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_background"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"
+                tools:src="@drawable/ic_profile_pic_placeholder" />
+
+            <!-- Camera Icon Circle -->
+            <FrameLayout
+                android:id="@+id/cameraButton"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/spacingXs"
+                android:background="@drawable/circle_background"
+                android:elevation="@dimen/spacingXs">
+
+                <ImageView
+                    android:layout_width="@dimen/iconSm"
+                    android:layout_height="@dimen/iconSm"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/na"
+                    android:src="@drawable/ic_camera"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <!-- Name Label -->
+        <TextView
+            android:id="@+id/tvNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/textLg"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/spacing4xl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profilePictureContainer" />
+
+        <!-- Name Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacingSm"
+            android:hint=""
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxCornerRadiusTopStart="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusTopEnd="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusBottomStart="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusBottomEnd="@dimen/buttonCornerRadius"
+            app:boxStrokeColor="@color/text_input_stroke_color"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNameLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/e_g_sakshi_hotkar"
+                android:textSize="@dimen/textLg"
+                android:textColor="@color/primaryTextColor"
+                android:textColorHint="@color/secondaryTextColor"
+                android:padding="@dimen/spacingLg" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Course Label -->
+        <TextView
+            android:id="@+id/tvCourseLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/course_optional"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/textLg"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/spacingXxl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameInputLayout" />
+
+        <!-- Course Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/courseInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacingSm"
+            android:hint=""
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/primaryInactiveColor"
+            app:boxCornerRadiusTopStart="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusTopEnd="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusBottomStart="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusBottomEnd="@dimen/buttonCornerRadius"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCourseLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/e_g_computer_science"
+                android:inputType="text"
+                android:textSize="@dimen/textLg"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/secondaryTextColor"
+                android:padding="@dimen/spacingLg" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- College Label -->
+        <TextView
+            android:id="@+id/tvCollegeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/college_optional"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/textLg"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/spacingXxl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/courseInputLayout" />
+
+        <!-- College Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/collegeInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacingSm"
+            android:hint=""
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusTopStart="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusTopEnd="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusBottomStart="@dimen/buttonCornerRadius"
+            app:boxCornerRadiusBottomEnd="@dimen/buttonCornerRadius"
+            app:boxStrokeColor="@color/text_input_stroke_color"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCollegeLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCollege"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mit"
+                android:inputType="text"
+                android:textSize="@dimen/textLg"
+                android:textColor="@color/primaryTextColor"
+                android:padding="@dimen/spacingLg" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Finish Setup Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinishSetup"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/buttonHeight"
+            android:layout_marginTop="@dimen/spacing4xl"
+            android:text="@string/finish_setup"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textLg"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"
+            app:icon="@drawable/ic_arrow_forward"
+            app:iconGravity="end"
+            app:iconPadding="@dimen/spacingSm"
+            app:iconTint="@color/white"
+            app:iconSize="@dimen/iconXs"
+            app:cornerRadius="@dimen/buttonCornerRadius"
+            android:backgroundTint="@color/primaryAccentColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/collegeInputLayout" />
+
+        <!-- Skip for now -->
+        <TextView
+            android:id="@+id/tvSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skip_for_now"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/textLg"
+            android:layout_marginTop="@dimen/spacingLg"
+            android:padding="@dimen/spacingMd"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnFinishSetup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

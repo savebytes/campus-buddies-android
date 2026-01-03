@@ -1,4 +1,33 @@
 <resources>
-    <string name="app_name">CampusBuddies</string>
+    <string name="app_name">Campus Buddies</string>
     <string name="web_client_id">773255292387-s9h2qrucn44691m74tf3sjamu4n2uc34.apps.googleusercontent.com</string>
+    <string name="icon">Icon</string>
+    <string name="community_that_matters_in_your_campus">Community that matters in your campus.</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="continue_with_google">Continue with google</string>
+    <string name="or">or</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in_with_email">Sign in with Email</string>
+    <string name="only_for_college_students">Only for College Students</string>
+    <string name="text_continue">Continue</string>
+    <string name="complete_your_profile">Complete your profile</string>
+    <string name="help_others_know_you_better">Help others know you better</string>
+    <string name="na">NA</string>
+    <string name="name">Name</string>
+    <string name="e_g_sakshi_hotkar">e.g: Sakshi Hotkar</string>
+    <string name="course_optional">Course (optional)</string>
+    <string name="e_g_computer_science">e.g. Computer Science</string>
+    <string name="college_optional">College (optional)</string>
+    <string name="mit">MGM</string>
+    <string name="finish_setup">Finish Setup</string>
+    <string name="skip_for_now">Skip for now</string>
+    <string name="choose_your_username">Choose your username</string>
+    <string name="this_will_be_visible_in_communities">This will be visible in communities</string>
+    <string name="username">Username</string>
+    <string name="safe_and_secure_spaces_designed_exclusively_for_college_students">Safe and secure spaces designed exclusively for college students.</string>
+    <string name="private_student_only_communities">Private, student-only communities</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
 </resources>

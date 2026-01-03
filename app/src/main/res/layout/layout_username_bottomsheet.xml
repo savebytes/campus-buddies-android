@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/card_bg">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="@dimen/spacing4xl"
+        android:layout_height="@dimen/spacingXs"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/spacingXxl"
+        android:background="@drawable/bottom_sheet_handle" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_your_username"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="@dimen/text3xl"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/spacingSm" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/this_will_be_visible_in_communities"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="@dimen/textMd"
+        android:layout_marginBottom="@dimen/spacingXxl" />
+
+    <!-- Username Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usernameInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusTopStart="@dimen/buttonCornerRadius"
+        app:boxCornerRadiusTopEnd="@dimen/buttonCornerRadius"
+        app:boxCornerRadiusBottomStart="@dimen/buttonCornerRadius"
+        app:boxCornerRadiusBottomEnd="@dimen/buttonCornerRadius"
+        app:boxStrokeColor="@color/text_input_stroke_color"
+        app:boxStrokeWidth="2dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextColor="@color/primaryAccentColor"
+        app:helperText="Use letters, numbers, and underscores only"
+        app:helperTextTextColor="@color/secondaryTextColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="@dimen/textLg"
+            android:textColor="@color/primaryTextColor"
+            android:padding="@dimen/spacingLg"
+            android:maxLines="1"
+            android:imeOptions="actionDone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Continue Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/buttonHeight"
+        android:layout_marginTop="@dimen/spacingXxl"
+        android:text="@string/text_continue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textLg"
+        android:textStyle="bold"
+        android:letterSpacing="0.03"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconGravity="textEnd"
+        app:iconPadding="8dp"
+        app:iconSize="@dimen/iconXs"
+        app:iconTint="@color/white"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        android:backgroundTint="@color/primaryAccentColor" />
+
+</LinearLayout>

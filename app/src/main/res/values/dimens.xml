@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="indicator_active_width">32dp</dimen>
+    <dimen name="indicator_inactive_size">8dp</dimen>
+    <dimen name="indicator_corner_radius">4dp</dimen>
+
+
+    <!-- ========================= -->
+    <!-- General Spacing (dp) -->
+    <!-- ========================= -->
+    <dimen name="spacingXxs">2dp</dimen>
+    <dimen name="spacingXs">4dp</dimen>
+    <dimen name="spacingSm">8dp</dimen>
+    <dimen name="spacingMd">12dp</dimen>
+    <dimen name="spacingLg">16dp</dimen>
+    <dimen name="spacingXl">20dp</dimen>
+    <dimen name="spacingXxl">24dp</dimen>
+    <dimen name="spacing3xl">32dp</dimen>
+    <dimen name="spacing4xl">40dp</dimen>
+
+    <!-- ========================= -->
+    <!-- Screen Padding -->
+    <!-- ========================= -->
+    <dimen name="screenPaddingSm">12dp</dimen>
+    <dimen name="screenPadding">16dp</dimen>
+    <dimen name="screenPaddingLg">24dp</dimen>
+
+    <!-- ========================= -->
+    <!-- Text Sizes (sp) -->
+    <!-- ========================= -->
+    <dimen name="textXs">10sp</dimen>
+    <dimen name="textSm">12sp</dimen>
+    <dimen name="textMd">14sp</dimen>
+    <dimen name="textLg">16sp</dimen>
+    <dimen name="textXl">18sp</dimen>
+    <dimen name="textXxl">20sp</dimen>
+    <dimen name="text3xl">24sp</dimen>
+    <dimen name="text4xl">28sp</dimen>
+
+    <!-- ========================= -->
+    <!-- Button -->
+    <!-- ========================= -->
+    <dimen name="buttonHeight">56dp</dimen>
+    <dimen name="buttonCornerRadius">12dp</dimen>
+    <dimen name="buttonPaddingHorizontal">16dp</dimen>
+    <dimen name="buttonStrokeSize">1.5dp</dimen>
+
+    <!-- ========================= -->
+    <!-- Card -->
+    <!-- ========================= -->
+    <dimen name="cardCornerRadius">16dp</dimen>
+    <dimen name="cardElevation">4dp</dimen>
+    <dimen name="cardPadding">16dp</dimen>
+
+    <!-- ========================= -->
+    <!-- Toolbar / AppBar -->
+    <!-- ========================= -->
+    <dimen name="toolbarHeight">56dp</dimen>
+    <dimen name="toolbarIconSize">24dp</dimen>
+
+    <!-- ========================= -->
+    <!-- Divider -->
+    <!-- ========================= -->
+    <dimen name="dividerHeight">1dp</dimen>
+
+    <!-- ========================= -->
+    <!-- Icon Sizes -->
+    <!-- ========================= -->
+    <dimen name="iconXs">16dp</dimen>
+    <dimen name="iconSm">20dp</dimen>
+    <dimen name="iconMd">24dp</dimen>
+    <dimen name="iconLg">32dp</dimen>
+    <dimen name="iconXl">48dp</dimen>
+
+
+
+
+</resources>

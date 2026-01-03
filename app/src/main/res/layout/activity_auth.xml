@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:background="@drawable/splash_screen_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- TOP HALF - Logo Section -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="400dp"
+            android:paddingTop="60dp"
+            android:paddingBottom="40dp">
+
+            <FrameLayout
+                android:id="@+id/imageViewBg"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/splash_screen_circle_bg"
+                android:elevation="@dimen/spacingSm"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.35">
+
+                <ImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/ic_community"
+                    app:tint="@color/primaryAccentColor" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/textLg"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/textXxl"
+                android:letterSpacing="0.05"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageViewBg" />
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacingSm"
+                android:text="@string/welcome_back"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textLg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- BOTTOM HALF - Sign In Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signInCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="400dp"
+            app:cardElevation="@dimen/spacingSm"
+            app:cardCornerRadius="@dimen/spacingXxl"
+            android:background="@drawable/card_bg"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing4xl">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/sign_in"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textXxl"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.07"
+                    android:layout_marginBottom="@dimen/spacingMd"/>
+
+                <!-- Google Sign In Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGoogleSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/buttonHeight"
+                    android:text="@string/continue_with_google"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textLg"
+                    android:letterSpacing="0.03"
+                    app:icon="@drawable/ic_google"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/spacingMd"
+                    app:iconTint="@null"
+                    app:strokeColor="@color/primaryInactiveColor"
+                    app:strokeWidth="@dimen/buttonStrokeSize"
+                    app:cornerRadius="@dimen/buttonCornerRadius"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:backgroundTint="@android:color/white" />
+
+                <!-- Divider with "or" text -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/spacingXxl"
+                    android:layout_marginBottom="@dimen/spacingXxl">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dividerHeight"
+                        android:layout_weight="1"
+                        android:background="@color/primaryInactiveColor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/or"
+                        android:textColor="@color/secondaryTextColor"
+                        android:textSize="@dimen/textMd"
+                        android:paddingStart="@dimen/spacingLg"
+                        android:paddingEnd="@dimen/spacingLg" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dividerHeight"
+                        android:layout_weight="1"
+                        android:background="@color/primaryInactiveColor" />
+                </LinearLayout>
+
+                <!-- Email Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusTopStart="@dimen/buttonCornerRadius"
+                    app:boxCornerRadiusTopEnd="@dimen/buttonCornerRadius"
+                    app:boxCornerRadiusBottomStart="@dimen/buttonCornerRadius"
+                    app:boxCornerRadiusBottomEnd="@dimen/buttonCornerRadius"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:boxStrokeWidth="2dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintTextColor="@color/primaryAccentColor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textSize="@dimen/textLg"
+                        android:textColor="@color/primaryTextColor"
+                        android:padding="@dimen/spacingLg" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password Input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingLg"
+                    android:hint="@string/password"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusTopStart="@dimen/buttonCornerRadius"
+                    app:boxCornerRadiusTopEnd="@dimen/buttonCornerRadius"
+                    app:boxCornerRadiusBottomStart="@dimen/buttonCornerRadius"
+                    app:boxCornerRadiusBottomEnd="@dimen/buttonCornerRadius"
+                    app:boxStrokeColor="@color/text_input_stroke_color"
+                    app:boxStrokeWidth="2dp"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:hintTextColor="@color/primaryAccentColor"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/primaryAccentColor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textSize="16sp"
+                        android:textColor="@color/primaryTextColor"
+                        android:padding="@dimen/spacingLg" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Email Sign In Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEmailSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/buttonHeight"
+                    android:layout_marginTop="@dimen/spacing3xl"
+                    android:text="@string/sign_in_with_email"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textLg"
+                    android:letterSpacing="0.03"
+                    app:icon="@android:drawable/sym_action_email"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/spacingMd"
+                    app:iconTint="@color/white"
+                    app:cornerRadius="@dimen/buttonHeight"
+                    android:backgroundTint="@color/primaryAccentColor" />
+
+                <!-- Footer Text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing3xl"
+                    android:layout_marginBottom="@dimen/spacingLg"
+                    android:text="@string/only_for_college_students"
+                    android:textColor="@color/secondaryTextColor"
+                    android:textSize="@dimen/textMd" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -94,4 +94,7 @@ dependencies {
     // Coroutines support
     implementation(libs.bundles.coroutine)
 
+    // View Pager
+    implementation(libs.androidx.viewpager2)
+
 }
