@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/screenPaddingLg"
+    android:layout_marginBottom="@dimen/screenPaddingSm"
+    app:cardCornerRadius="@dimen/communityCardRadiusMd"
+    app:cardElevation="2dp"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ivCommunityBanner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/community_banner"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvJoinedBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacingLg"
+            app:cardCornerRadius="@dimen/communityCardRadiusLg"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/spacingXxs"
+                android:paddingHorizontal="@dimen/spacingSm"
+                android:elevation="1dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/iconXxs"
+                    android:layout_height="@dimen/iconXxs"
+                    android:src="@drawable/ic_check"
+                    app:tint="@color/primaryAccentColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/joined"
+                    android:letterSpacing="0.01"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="#00897B"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvAvatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="@dimen/spacingXl"
+            android:layout_marginTop="-40dp"
+            app:cardCornerRadius="@dimen/buttonCornerRadius"
+            app:cardElevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCommunityBanner">
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/community_avatar"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvCommunityName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacingMd"
+            android:paddingStart="@dimen/spacingXl"
+            android:paddingEnd="@dimen/spacingXl"
+            android:text="@string/cs_study_group"
+            android:textSize="@dimen/textXl"
+            android:textStyle="bold"
+            android:textColor="@color/primaryTextColor"
+            app:layout_constraintTop_toBottomOf="@id/cvAvatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacingXxs"
+            android:layout_marginBottom="@dimen/spacingSm"
+            android:paddingStart="@dimen/spacingXl"
+            android:paddingEnd="@dimen/spacingXl"
+            android:text="@string/collaborative_learning_space_for_computer_science_students"
+            android:textSize="@dimen/textMd"
+            android:textColor="@color/secondaryTextColor"
+            android:lineSpacingExtra="2dp"
+            app:layout_constraintTop_toBottomOf="@id/tvCommunityName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacingXl"
+            android:paddingVertical="@dimen/spacingXxs"
+            app:singleLine="false"
+            app:chipSpacingVertical="0.5dp"
+            app:chipSpacingHorizontal="5dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacingSm"
+            android:layout_marginHorizontal="@dimen/spacingXl"
+            android:background="@color/secondaryAccentColor"
+            app:layout_constraintTop_toBottomOf="@id/chipGroup"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/spacingMd"
+            android:paddingHorizontal="@dimen/spacingXl"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvViewDetails"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/iconXs"
+                android:layout_height="@dimen/iconXs"
+                android:src="@drawable/ic_community"
+                app:tint="@color/primaryAccentColor"/>
+
+            <TextView
+                android:id="@+id/tvMemberCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacingSm"
+                android:text="@string/_45_members"
+                android:textSize="@dimen/textMd"
+                android:textColor="@color/primaryAccentColor"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvViewDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacingXl"
+            android:text="@string/view_details"
+            android:textSize="@dimen/textMd"
+            android:textColor="@color/primaryAccentColor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/divider"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

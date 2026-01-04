@@ -23,7 +23,7 @@
     <!-- ========================= -->
     <dimen name="screenPaddingSm">12dp</dimen>
     <dimen name="screenPadding">16dp</dimen>
-    <dimen name="screenPaddingLg">24dp</dimen>
+    <dimen name="screenPaddingLg">20dp</dimen>
 
     <!-- ========================= -->
     <!-- Text Sizes (sp) -->
@@ -66,11 +66,20 @@
     <!-- ========================= -->
     <!-- Icon Sizes -->
     <!-- ========================= -->
+    <dimen name="iconXxs">13dp</dimen>
     <dimen name="iconXs">16dp</dimen>
     <dimen name="iconSm">20dp</dimen>
     <dimen name="iconMd">24dp</dimen>
     <dimen name="iconLg">32dp</dimen>
     <dimen name="iconXl">48dp</dimen>
+
+    <!-- ========================= -->
+    <!-- Radius -->
+    <!-- ========================= -->
+    <dimen name="communityCardRadiusLg">20dp</dimen>
+    <dimen name="communityCardRadiusMd">16dp</dimen>
+    <dimen name="communityCardRadiusSm">12dp</dimen>
+
 
 
 

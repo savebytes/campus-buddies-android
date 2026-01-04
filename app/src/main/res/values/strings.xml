@@ -30,4 +30,16 @@
     <string name="private_student_only_communities">Private, student-only communities</string>
     <string name="next">Next</string>
     <string name="skip">Skip</string>
+    <string name="communities">Communities</string>
+    <string name="search_communities">Search communities</string>
+    <string name="search">Search</string>
+    <string name="community_banner">Community Banner</string>
+    <string name="chats">Chats</string>
+    <string name="profile">Profile</string>
+    <string name="community_avatar">Community Avatar</string>
+    <string name="cs_study_group">CS Study Group</string>
+    <string name="collaborative_learning_space_for_computer_science_students">Collaborative learning space for Computer Science students</string>
+    <string name="_45_members">45 members</string>
+    <string name="view_details">View details →</string>
+    <string name="joined">Joined</string>
 </resources>
