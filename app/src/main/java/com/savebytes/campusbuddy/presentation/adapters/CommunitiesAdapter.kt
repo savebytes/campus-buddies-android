@@ -14,7 +14,8 @@ import com.savebytes.campusbuddy.databinding.ItemSearchBarBinding
 import com.savebytes.campusbuddy.domain.model.Community
 
 class CommunitiesAdapter(
-    private val onCommunityClick: (Community) -> Unit
+    private val onCommunityClick: (Community) -> Unit,
+    private val onSearchClick: () -> Unit
 ) : ListAdapter<Community, RecyclerView.ViewHolder>(CommunityDiffCallback()) {
 
     companion object {
@@ -38,7 +39,7 @@ class CommunitiesAdapter(
         return when (viewType) {
             VIEW_TYPE_SEARCH -> {
                 val binding = ItemSearchBarBinding.inflate(inflater, parent, false)
-                SearchViewHolder(binding)
+                SearchViewHolder(binding, onSearchClick)
             }
             else -> {
                 val binding = ItemCommunityCardBinding.inflate(inflater, parent, false)
@@ -57,17 +58,14 @@ class CommunitiesAdapter(
         }
     }
 
-    // -------------------------
-    // ViewHolders
-    // -------------------------
-
     class SearchViewHolder(
-        private val binding: ItemSearchBarBinding
+        private val binding: ItemSearchBarBinding,
+        private val onSearchClick: () -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
             binding.root.setOnClickListener {
-                // Open search / expand search
+                onSearchClick()
             }
         }
     }
@@ -85,11 +83,9 @@ class CommunitiesAdapter(
             cvJoinedBadge.visibility =
                 if (community.isJoined) View.VISIBLE else View.GONE
 
-            // Image loading (example)
             Glide.with(root.context).load(community.imageUrl).into(ivCommunityBanner)
             Glide.with(root.context).load(community.avatarUrl).into(ivAvatar)
 
-            // Tags
             chipGroup.removeAllViews()
             community.tags.forEach { tag ->
                 val chip = Chip(root.context).apply {
@@ -107,6 +103,7 @@ class CommunitiesAdapter(
             tvViewDetails.setOnClickListener { onCommunityClick(community) }
         }
     }
+
     class CommunityDiffCallback : DiffUtil.ItemCallback<Community>() {
         override fun areItemsTheSame(oldItem: Community, newItem: Community): Boolean {
             return oldItem.id == newItem.id
