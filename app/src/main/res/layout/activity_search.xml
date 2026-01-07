@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Search Bar -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSearchBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacingLg"
+        android:layout_marginEnd="@dimen/spacingLg"
+        android:layout_marginTop="@dimen/spacingLg"
+        app:cardCornerRadius="@dimen/buttonCornerRadius"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/secondaryAccentColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/spacingSm">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/iconMd"
+                android:layout_height="@dimen/iconMd"
+                android:src="@android:drawable/ic_menu_revert"
+                android:padding="@dimen/spacingXs"
+                android:contentDescription="@string/back"
+                app:tint="@color/primaryTextColor"/>
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingSm"
+                android:layout_marginEnd="@dimen/spacingSm"
+                android:background="@android:color/transparent"
+                android:hint="@string/search_users_communities"
+                android:textSize="@dimen/textLg"
+                android:textColor="@color/primaryTextColor"
+                android:textColorHint="@color/secondaryTextColor"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"/>
+
+            <ImageView
+                android:id="@+id/ivClear"
+                android:layout_width="@dimen/iconMd"
+                android:layout_height="@dimen/iconMd"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:padding="@dimen/spacingXs"
+                android:contentDescription="@string/clear"
+                android:visibility="gone"
+                app:tint="@color/secondaryTextColor"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Results RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchResults"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacingMd"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/spacingLg"
+        app:layout_constraintTop_toBottomOf="@id/cvSearchBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/emptyStateLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_search"
+            android:alpha="0.3"
+            app:tint="@color/secondaryTextColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacingXl"
+            android:text="@string/no_results_found"
+            android:textSize="@dimen/textXl"
+            android:textStyle="bold"
+            android:textColor="@color/primaryTextColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacingSm"
+            android:text="@string/try_searching_for_something_else"
+            android:textSize="@dimen/textMd"
+            android:textColor="@color/secondaryTextColor"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

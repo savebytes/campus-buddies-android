@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/spacingXxl"
+    android:paddingEnd="@dimen/spacingXxl"
+    android:paddingTop="@dimen/spacingMd"
+    android:paddingBottom="@dimen/spacingMd"
+    android:background="?attr/selectableItemBackground">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars"/>
+
+    <TextView
+        android:id="@+id/tvCommunityName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacingLg"
+        android:layout_marginEnd="@dimen/spacingSm"
+        android:textSize="@dimen/textLg"
+        android:textStyle="bold"
+        android:textColor="@color/primaryTextColor"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@id/ivAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivAvatar"
+        tools:text="CS Study Group"/>
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacingXxs"
+        android:textSize="@dimen/textSm"
+        android:textColor="@color/secondaryTextColor"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="@id/tvCommunityName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCommunityName"
+        tools:text="Collaborative learning space for CS students"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacingXs"
+        app:singleLine="true"
+        app:chipSpacingHorizontal="@dimen/spacingXs"
+        app:layout_constraintStart_toStartOf="@id/tvCommunityName"
+        app:layout_constraintEnd_toStartOf="@id/tvMemberCount"
+        app:layout_constraintTop_toBottomOf="@id/tvDescription"/>
+
+    <TextView
+        android:id="@+id/tvMemberCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSm"
+        android:textColor="@color/secondaryTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+        tools:text="45 members"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,4 +42,9 @@
     <string name="_45_members">45 members</string>
     <string name="view_details">View details →</string>
     <string name="joined">Joined</string>
+    <string name="search_users_communities">Search users, communities...</string>
+    <string name="back">Back</string>
+    <string name="clear">Clear</string>
+    <string name="no_results_found">No results found</string>
+    <string name="try_searching_for_something_else">Try searching for something else</string>
 </resources>

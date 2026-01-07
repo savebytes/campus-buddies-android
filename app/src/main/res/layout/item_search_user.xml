@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/spacingXxl"
+    android:paddingEnd="@dimen/spacingXxl"
+    android:paddingTop="@dimen/spacingMd"
+    android:paddingBottom="@dimen/spacingMd"
+    android:background="?attr/selectableItemBackground">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars"/>
+
+    <View
+        android:id="@+id/viewOnlineStatus"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="@drawable/bg_online_indicator"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/ivAvatar"
+        app:layout_constraintBottom_toBottomOf="@id/ivAvatar"/>
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacingLg"
+        android:textSize="@dimen/textLg"
+        android:textStyle="bold"
+        android:textColor="@color/primaryTextColor"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@id/ivAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivAvatar"
+        tools:text="Sarah"/>
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacingXs"
+        android:textSize="@dimen/textMd"
+        android:textColor="@color/secondaryTextColor"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="@id/tvUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserName"
+        tools:text="@sarah_miller"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.savebytes.campusbuddy.presentation.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.savebytes.campusbuddy.databinding.FragmentChatsBinding
 import com.savebytes.campusbuddy.domain.model.ChatItem
 import com.savebytes.campusbuddy.presentation.adapters.ChatsAdapter
-import com.savebytes.campusbuddy.presentation.dialogs.SearchChatsDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,7 +40,7 @@ class ChatsFragment : Fragment() {
     private fun setupRecyclerView() {
         chatsAdapter = ChatsAdapter(
             onChatClick = { chat -> onChatClick(chat) },
-            onSearchClick = { showSearchDialog() }
+            onSearchClick = { openSearchActivity() }
         )
 
         binding.rvChats.apply {
@@ -93,30 +93,13 @@ class ChatsFragment : Fragment() {
         chatsAdapter.submitList(allChats)
     }
 
-    private fun showSearchDialog() {
-        val searchDialog = SearchChatsDialogFragment { query ->
-            filterChats(query)
-        }
-        searchDialog.show(parentFragmentManager, "SearchChatsDialog")
-    }
-
-    private fun filterChats(query: String) {
-        val filtered = if (query.isBlank()) {
-            allChats
-        } else {
-            allChats.filter {
-                it.communityName.contains(query, ignoreCase = true) ||
-                        it.lastMessage.contains(query, ignoreCase = true)
-            }
-        }
-        chatsAdapter.submitList(filtered)
+    private fun openSearchActivity() {
+        val intent = Intent(requireContext(), SearchActivity::class.java)
+        startActivity(intent)
     }
 
     private fun onChatClick(chat: ChatItem) {
         // Navigate to chat details
-        // findNavController().navigate(
-        //     ChatsFragmentDirections.actionToChatDetails(chat.communityId)
-        // )
     }
 
     override fun onDestroyView() {

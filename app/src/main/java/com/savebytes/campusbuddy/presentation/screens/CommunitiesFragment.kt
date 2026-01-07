@@ -1,5 +1,6 @@
 package com.savebytes.campusbuddy.presentation.screens
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +40,7 @@ class CommunitiesFragment : Fragment() {
     private fun setupRecyclerView() {
         communitiesAdapter = CommunitiesAdapter(
             onCommunityClick = { community -> onCommunityClick(community) },
-            onSearchClick = { showSearchDialog() }
+            onSearchClick = { openSearchActivity() }
         )
 
         binding.rvCommunities.apply {
@@ -96,31 +97,13 @@ class CommunitiesFragment : Fragment() {
         communitiesAdapter.submitList(allCommunities)
     }
 
-    private fun showSearchDialog() {
-        val searchDialog = SearchCommunitiesDialogFragment { query ->
-            filterCommunities(query)
-        }
-        searchDialog.show(parentFragmentManager, "SearchDialog")
-    }
-
-    private fun filterCommunities(query: String) {
-        val filtered = if (query.isBlank()) {
-            allCommunities
-        } else {
-            allCommunities.filter {
-                it.name.contains(query, ignoreCase = true) ||
-                        it.description.contains(query, ignoreCase = true) ||
-                        it.tags.any { tag -> tag.contains(query, ignoreCase = true) }
-            }
-        }
-        communitiesAdapter.submitList(filtered)
+    private fun openSearchActivity() {
+        val intent = Intent(requireContext(), SearchActivity::class.java)
+        startActivity(intent)
     }
 
     private fun onCommunityClick(community: Community) {
         // Navigate to community details
-        // findNavController().navigate(
-        //     CommunitiesFragmentDirections.actionToCommunityDetails(community.id)
-        // )
     }
 
     override fun onDestroyView() {
