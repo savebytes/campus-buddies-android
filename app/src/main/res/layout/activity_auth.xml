@@ -218,7 +218,7 @@
                     app:iconGravity="textStart"
                     app:iconPadding="@dimen/spacingMd"
                     app:iconTint="@color/white"
-                    app:cornerRadius="@dimen/buttonHeight"
+                    app:cornerRadius="@dimen/buttonCornerRadius"
                     android:backgroundTint="@color/primaryAccentColor" />
 
                 <!-- Footer Text -->

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Layer 1: Primary color (top 20%) -->
+    <item
+        android:top="0dp"
+        android:bottom="0dp"
+        android:height="20dp"
+        android:gravity="top">
+        <shape android:shape="rectangle">
+            <solid android:color="#009689" />
+        </shape>
+    </item>
+
+    <!-- Layer 2: Primary color (next 20%) -->
+    <item
+        android:top="0dp"
+        android:bottom="0dp"
+        android:height="40dp"
+        android:gravity="top">
+        <shape android:shape="rectangle">
+            <solid android:color="#009689" />
+        </shape>
+    </item>
+
+    <!-- Gradient transition from primary to white (middle) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#009689"
+                android:centerColor="#4DB8AC"
+                android:endColor="#FFFFFF" />
+        </shape>
+    </item>
+
+</layer-list>
