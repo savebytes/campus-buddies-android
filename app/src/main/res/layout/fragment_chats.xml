@@ -6,26 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chats"
-        android:textSize="@dimen/textXxl"
-        android:textStyle="bold"
-        android:letterSpacing="0.05"
-        android:textColor="@color/primaryTextColor"
-        android:paddingStart="@dimen/spacingXxl"
-        android:paddingEnd="@dimen/spacingXxl"
-        android:paddingTop="@dimen/spacingXxl"
-        android:paddingBottom="@dimen/spacingLg"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvChats"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingTop="@dimen/spacingSm"
         android:paddingBottom="@dimen/spacingMd"

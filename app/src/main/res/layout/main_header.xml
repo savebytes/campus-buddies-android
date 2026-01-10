@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <!-- Header Title -->
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="@string/communities"
+        android:layout_marginTop="@dimen/spacingXxl"
+        android:layout_marginStart="@dimen/spacingXl"
+        android:layout_marginEnd="@dimen/spacingMd"
+        android:textSize="@dimen/textXl"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:textColor="@color/primaryTextColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/headerIcon"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- End Icon -->
+    <ImageView
+        android:id="@+id/headerIcon"
+        android:layout_width="@dimen/iconMd"
+        android:layout_height="@dimen/iconMd"
+        android:layout_marginTop="@dimen/spacingXxl"
+        android:layout_marginEnd="@dimen/spacingXl"
+        android:contentDescription="@string/icon"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:src="@drawable/ic_settings"
+        app:tint="@color/primaryTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Search Bar -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacingXl"
+        android:layout_marginEnd="@dimen/spacingXl"
+        android:layout_marginVertical="@dimen/spacingLg"
+        app:cardCornerRadius="@dimen/buttonCornerRadius"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/secondaryAccentColor"
+        app:layout_constraintTop_toBottomOf="@id/headerTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/iconSm"
+                android:layout_height="@dimen/iconSm"
+                android:src="@drawable/ic_search"
+                android:contentDescription="@string/search"
+                app:tint="@color/searchIconTint"/>
+
+            <TextView
+                android:id="@+id/tvSearchHint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingMd"
+                android:text="@string/search_communities"
+                android:textSize="@dimen/textLg"
+                android:textColor="@color/primaryAccentColor"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -79,6 +79,7 @@ dependencies {
 
     // Dagger + Hilt
     implementation(libs.bundles.hilt)
+    implementation(libs.androidx.recyclerview)
     kapt(libs.hilt.compiler)
 
     // DataStore (Shared Pref)

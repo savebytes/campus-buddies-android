@@ -42,6 +42,7 @@ playServicesAuth = "21.4.0"
 # Coruitines support
 kotlinxCoroutinesPlayServices = "1.9.0"
 viewpager2 = "1.1.0"
+recyclerview = "1.4.0"
 
 
 [plugins]
@@ -100,6 +101,7 @@ play-services-auth = { module = "com.google.android.gms:play-services-auth", ver
 # Coroutines support
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesPlayServices" }
 kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutinesPlayServices" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 
 [bundles]

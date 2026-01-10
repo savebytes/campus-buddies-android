@@ -37,7 +37,7 @@ class ProfileCommunitiesAdapter(
 
             Glide.with(root.context)
                 .load(community.avatarUrl)
-                .circleCrop()
+                .fitCenter()
                 .into(ivAvatar)
 
             root.setOnClickListener { onCommunityClick(community) }

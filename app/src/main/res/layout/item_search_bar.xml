@@ -19,8 +19,8 @@
         android:gravity="center_vertical">
 
         <ImageView
-            android:layout_width="@dimen/iconMd"
-            android:layout_height="@dimen/iconMd"
+            android:layout_width="@dimen/iconSm"
+            android:layout_height="@dimen/iconSm"
             android:src="@drawable/ic_search"
             android:contentDescription="@string/search"
             app:tint="@color/searchIconTint"/>

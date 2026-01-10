@@ -6,13 +6,26 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <!-- Main Header -->
+    <include
+        android:id="@+id/mainHeader"
+        layout="@layout/main_header"
+        android:layout_marginTop="@dimen/spacingXl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <!-- Fragment Container -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"/>
+        app:layout_constraintTop_toBottomOf="@id/mainHeader"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,6 +36,8 @@
         android:background="@color/white"
         app:elevation="@dimen/spacingSm"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

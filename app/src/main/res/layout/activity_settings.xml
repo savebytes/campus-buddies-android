@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacingXxl">
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingLg"
+            android:paddingEnd="@dimen/spacingLg"
+            android:paddingTop="@dimen/spacingXxl"
+            android:paddingBottom="@dimen/spacingXl"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/iconMd"
+                android:layout_height="@dimen/iconMd"
+                android:src="@android:drawable/ic_menu_revert"
+                android:padding="@dimen/spacingXs"
+                android:contentDescription="@string/back"
+                app:tint="@color/primaryTextColor"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingMd"
+                android:text="@string/settings"
+                android:textSize="@dimen/textXxl"
+                android:textStyle="bold"
+                android:textColor="@color/primaryTextColor"/>
+
+        </LinearLayout>
+
+        <!-- ACCOUNT Section -->
+        <TextView
+            android:id="@+id/tvAccountHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account"
+            android:textSize="@dimen/textMd"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryTextColor"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingMd"
+            android:paddingBottom="@dimen/spacingMd"
+            android:background="@color/secondaryAccentColor"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader"/>
+
+        <!-- Edit Profile -->
+        <LinearLayout
+            android:id="@+id/layoutEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingLg"
+            android:paddingBottom="@dimen/spacingLg"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintTop_toBottomOf="@id/tvAccountHeader">
+
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/settings_icon_bg_purple">
+
+                <ImageView
+                    android:layout_width="@dimen/iconMd"
+                    android:layout_height="@dimen/iconMd"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_profile"
+                    app:tint="@color/settingsIconPurple"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingLg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_profile"
+                    android:textSize="@dimen/textLg"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingXxs"
+                    android:text="@string/update_your_profile_information"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="@color/secondaryTextColor"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/iconMd"
+                android:layout_height="@dimen/iconMd"
+                android:src="@android:drawable/ic_menu_more"
+                android:rotation="270"
+                app:tint="@color/secondaryTextColor"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/secondaryAccentColor"
+            android:layout_marginStart="@dimen/spacingXxl"
+            android:layout_marginEnd="@dimen/spacingXxl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutEditProfile"/>
+
+        <!-- Privacy & Security -->
+        <LinearLayout
+            android:id="@+id/layoutPrivacySecurity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingLg"
+            android:paddingBottom="@dimen/spacingLg"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintTop_toBottomOf="@id/divider1">
+
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/settings_icon_bg_purple">
+
+                <ImageView
+                    android:layout_width="@dimen/iconMd"
+                    android:layout_height="@dimen/iconMd"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_lock_lock"
+                    app:tint="@color/settingsIconPurple"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingLg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/privacy_security"
+                    android:textSize="@dimen/textLg"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingXxs"
+                    android:text="@string/manage_your_privacy_settings"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="@color/secondaryTextColor"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/iconMd"
+                android:layout_height="@dimen/iconMd"
+                android:src="@android:drawable/ic_menu_more"
+                android:rotation="270"
+                app:tint="@color/secondaryTextColor"/>
+        </LinearLayout>
+
+        <!-- NOTIFICATIONS Section -->
+        <TextView
+            android:id="@+id/tvNotificationsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/notifications"
+            android:textSize="@dimen/textMd"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryTextColor"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingMd"
+            android:paddingBottom="@dimen/spacingMd"
+            android:layout_marginTop="@dimen/spacingLg"
+            android:background="@color/secondaryAccentColor"
+            app:layout_constraintTop_toBottomOf="@id/layoutPrivacySecurity"/>
+
+        <!-- Push Notifications -->
+        <LinearLayout
+            android:id="@+id/layoutPushNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingLg"
+            android:paddingBottom="@dimen/spacingLg"
+            app:layout_constraintTop_toBottomOf="@id/tvNotificationsHeader">
+
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/settings_icon_bg_green">
+
+                <ImageView
+                    android:layout_width="@dimen/iconMd"
+                    android:layout_height="@dimen/iconMd"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_popup_reminder"
+                    app:tint="@color/settingsIconGreen"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingLg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/push_notifications"
+                    android:textSize="@dimen/textLg"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingXxs"
+                    android:text="@string/enable_all_notifications"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="@color/secondaryTextColor"/>
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchPushNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:thumbTint="@color/white"
+                app:trackTint="@color/switch_track_color"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/secondaryAccentColor"
+            android:layout_marginStart="@dimen/spacingXxl"
+            android:layout_marginEnd="@dimen/spacingXxl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutPushNotifications"/>
+
+        <!-- Message Notifications -->
+        <LinearLayout
+            android:id="@+id/layoutMessageNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingLg"
+            android:paddingBottom="@dimen/spacingLg"
+            app:layout_constraintTop_toBottomOf="@id/divider2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_notifications"
+                    android:textSize="@dimen/textLg"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingXxs"
+                    android:text="@string/get_notified_for_new_messages"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="@color/secondaryTextColor"/>
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchMessageNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:thumbTint="@color/white"
+                app:trackTint="@color/switch_track_color"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/secondaryAccentColor"
+            android:layout_marginStart="@dimen/spacingXxl"
+            android:layout_marginEnd="@dimen/spacingXxl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutMessageNotifications"/>
+
+        <!-- Join Request Notifications -->
+        <LinearLayout
+            android:id="@+id/layoutJoinRequestNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingLg"
+            android:paddingBottom="@dimen/spacingLg"
+            app:layout_constraintTop_toBottomOf="@id/divider3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/join_request_notifications"
+                    android:textSize="@dimen/textLg"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingXxs"
+                    android:text="@string/get_notified_for_join_requests"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="@color/secondaryTextColor"/>
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchJoinRequestNotifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:thumbTint="@color/white"
+                app:trackTint="@color/switch_track_color"/>
+        </LinearLayout>
+
+        <!-- SUPPORT Section -->
+        <TextView
+            android:id="@+id/tvSupportHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/support"
+            android:textSize="@dimen/textMd"
+            android:textStyle="bold"
+            android:textColor="@color/secondaryTextColor"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingMd"
+            android:paddingBottom="@dimen/spacingMd"
+            android:layout_marginTop="@dimen/spacingLg"
+            android:background="@color/secondaryAccentColor"
+            app:layout_constraintTop_toBottomOf="@id/layoutJoinRequestNotifications"/>
+
+        <!-- Help & Support -->
+        <LinearLayout
+            android:id="@+id/layoutHelpSupport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingLg"
+            android:paddingBottom="@dimen/spacingLg"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintTop_toBottomOf="@id/tvSupportHeader">
+
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/settings_icon_bg_blue">
+
+                <ImageView
+                    android:layout_width="@dimen/iconMd"
+                    android:layout_height="@dimen/iconMd"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_help"
+                    app:tint="@color/settingsIconBlue"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingLg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_support"
+                    android:textSize="@dimen/textLg"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingXxs"
+                    android:text="@string/get_help_with_campus_buddy"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="@color/secondaryTextColor"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/iconMd"
+                android:layout_height="@dimen/iconMd"
+                android:src="@android:drawable/ic_menu_more"
+                android:rotation="270"
+                app:tint="@color/secondaryTextColor"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dividerHeight"
+            android:background="@color/secondaryAccentColor"
+            android:layout_marginStart="@dimen/spacingXxl"
+            android:layout_marginEnd="@dimen/spacingXxl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutHelpSupport"/>
+
+        <!-- About -->
+        <LinearLayout
+            android:id="@+id/layoutAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacingXxl"
+            android:paddingEnd="@dimen/spacingXxl"
+            android:paddingTop="@dimen/spacingLg"
+            android:paddingBottom="@dimen/spacingLg"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintTop_toBottomOf="@id/divider4">
+
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/settings_icon_bg_blue">
+
+                <ImageView
+                    android:layout_width="@dimen/iconMd"
+                    android:layout_height="@dimen/iconMd"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_info_details"
+                    app:tint="@color/settingsIconBlue"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacingLg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about"
+                    android:textSize="@dimen/textLg"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacingXxs"
+                    android:text="@string/app_version_and_information"
+                    android:textSize="@dimen/textSm"
+                    android:textColor="@color/secondaryTextColor"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/iconMd"
+                android:layout_height="@dimen/iconMd"
+                android:src="@android:drawable/ic_menu_more"
+                android:rotation="270"
+                app:tint="@color/secondaryTextColor"/>
+        </LinearLayout>
+
+        <!-- App Version Footer -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/spacing4xl"
+            app:layout_constraintTop_toBottomOf="@id/layoutAbout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="@dimen/textLg"
+                android:textStyle="bold"
+                android:textColor="@color/primaryTextColor"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacingXs"
+                android:text="@string/version_1_0_0"
+                android:textSize="@dimen/textSm"
+                android:textColor="@color/secondaryTextColor"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

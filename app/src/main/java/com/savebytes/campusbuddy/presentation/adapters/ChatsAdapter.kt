@@ -21,7 +21,7 @@ class ChatsAdapter(
         private const val VIEW_TYPE_CHAT = 1
     }
 
-    private var showSearchBar = true
+    private var showSearchBar = false
 
     override fun getItemCount(): Int {
         return if (showSearchBar) super.getItemCount() + 1 else super.getItemCount()

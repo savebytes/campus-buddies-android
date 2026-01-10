@@ -17,29 +17,44 @@
         android:theme="@style/Theme.CampusBuddies"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".presentation.screens.SettingsActivity"
+            android:exported="false" />
+
+        <!-- Search Activity -->
         <activity
             android:name=".presentation.screens.SearchActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
+
         <activity
             android:name=".presentation.screens.EditProfileScreen"
-            android:exported="false" /> <!-- Auth Activity -->
+            android:exported="false" />
+
+        <!-- Auth Activity -->
         <activity
             android:name=".presentation.screens.AuthActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize" /> <!-- Splash Activity -->
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Splash Activity -->
         <activity
             android:name=".presentation.screens.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- OnBoarding Activity -->
+        </activity>
+
+        <!-- OnBoarding Activity -->
         <activity
             android:name=".presentation.screens.OnboardingActivity"
-            android:exported="false" /> <!-- Main Activity -->
+            android:exported="false" />
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />

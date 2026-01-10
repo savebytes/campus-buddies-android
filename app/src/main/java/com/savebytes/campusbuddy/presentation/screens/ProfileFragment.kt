@@ -41,9 +41,11 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupViews() {
-        binding.ivSettings.setOnClickListener {
-            // Navigate to settings
-        }
+//        binding.ivSettings.setOnClickListener {
+//            // Navigate to settings
+//            val intent = Intent(requireContext(), SettingsActivity::class.java)
+//            startActivity(intent)
+//        }
 
         binding.btnLogout.setOnClickListener {
             handleLogout()
